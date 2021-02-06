@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+// Importer BOOTRAP;
+@import '~bootstrap/dist/css/bootstrap.min.css';
+body {
+   background: rgb(0, 0, 0);
+   color: aliceblue;
+   overflow-x: hidden;
+   overflow-y: scroll;
+ }
+ input.form-control {
+   background: rgba(255, 255, 255, 0.85);
+   padding: 15px 15px;
+   color: rgb(37, 37, 37);
+ }
+ 

@@ -1,0 +1,42 @@
+<h1>Les films à l'affiche</h1>
+
+<div class="input-group sticky-top">
+   <input #inputElt (keyup)="searchMovies(inputElt.value)" placeholder="Rechercher..." type="text" class="form-control">
+   <span *ngIf="inputElt.value.length>0" (click)="deleteSearchText(inputElt)" class="input-group-text"
+      id="basic-addon1"><i class="fas fa-times"></i></span>
+</div>
+
+<ul class="list-group results-list">
+   <li *ngFor="let result of results" [routerLink]="['/detail', result.id, 'results']"
+      class="list-group-item bg-dark text-light">
+      {{result.title}}
+   </li>
+</ul>
+
+<!-- LIST DES FILMS-->
+<div [style.opacity]="getListOpacity()" class="row content">
+   <div *ngFor="let movie of movies" class="col-12 col-lg-3 col-xl-2">
+      <div [routerLink]="['/detail', movie.id, 'movies']" class="card ripple">
+         <h4>Voir</h4>
+         <img [src]="printImageSrc(movie)">
+         <div class="card-body">
+            <h5>{{movie.title}}</h5>
+            <!-- Component Ratings-->
+            <ratings [score]="movie.score/2"></ratings>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- LOADER-->
+<div *ngIf="isLoading" class="d-flex justify-content-center align-items-center loader">
+   <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+   </div>
+</div>
+
+
+<!-- Navigation bottom bar -->
+<div class="fixed-bottom bg-info text-center p-2">
+   <button (click)="loadNextMovies()" class="btn btn-light">Films suivants</button>
+</div>

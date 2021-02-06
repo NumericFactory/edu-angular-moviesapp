@@ -1,0 +1,76 @@
+.row {
+  padding-bottom: 75px;
+  padding-top: 25px;
+}
+input {
+  position:sticky;
+}
+.card {
+   /* background: rgba(255, 255, 255, 0.1); */
+   color: rgb(255, 255, 255);
+   transition: 0.2s;
+   z-index: 3;
+   position: relative;
+   background: rgba(102, 117, 251, 0.1);
+   margin-bottom: 25px;
+ }
+ 
+ .card-body h5 {
+   text-overflow: ellipsis;
+   /* Required for text-overflow to do anything */
+   white-space: nowrap;
+   overflow: hidden;
+   color: aliceblue;
+ }
+ .card h4 {
+   width: 70px;
+   background: rgb(56, 26, 221);
+   padding: 1px 5px;
+   border-radius: 20px;
+   text-align: center;
+   position: absolute;
+   top: 50%;
+   left: calc(50% - 40px);
+   opacity: 0;
+   transition: 0.3s;
+   z-index: 999999 !important;
+   font-size: 1rem;
+ }
+ .card:hover {
+   transform: scale(1.15);
+   cursor: pointer;
+ }
+ .card:hover h4 {
+   opacity: 1;
+ }
+ .card:hover img {
+   filter: blur(1px);
+ }
+ .loader {
+   position: fixed;
+   width: 100vw;
+   height: 100vh;
+   background: #0189ff30;
+   z-index: 9999999;
+   top: 0;
+   left: 0;
+ }
+ .list-group-item:hover {
+    background:rgb(56, 26, 221) !important;
+ }
+ .results-list {
+  position: sticky;
+   top: 60px;
+   z-index: 9999;
+   width: 100%;
+}
+
+@media screen and (max-width:991px) {
+  .card:hover {
+    transform: scale(1);
+    cursor: pointer;
+  }
+  .card:hover img {
+    filter:grayscale(1);
+  }
+}
